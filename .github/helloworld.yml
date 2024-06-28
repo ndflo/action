@@ -4,7 +4,7 @@ on:
     types: opened
 jobs:
   startup:
-    name: run startup
+    name: run Florent
     runs-on: ubuntu-latest
     steps: 
       - run: echo"Hello world"

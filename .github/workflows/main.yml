@@ -23,6 +23,6 @@ jobs:
         with:
           fetch-depth: 0
       - name: Check for Buttons
-        run: ./.github/scripts/checker.sh
+        run: ./.github/script/checker.sh
         env:
           FILE: ./src/components/Button.js

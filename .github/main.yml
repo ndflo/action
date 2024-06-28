@@ -1,7 +1,5 @@
 name: Hello Wor
-on:
-  pull_request:
-    types: [opened]
+on: [pull_request, push, pull]
 jobs:
   startup:
     name: Run startup script

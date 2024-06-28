@@ -23,6 +23,6 @@ jobs:
         with:
           fetch-depth: 0
       - name: Prepare script
-        run: sh ./.github/script/checker.sh
+        run: sh ./.github/script/checker.sh && ./.github/script/checker.sh
         env:
           FILE: ./src/components/Button.js

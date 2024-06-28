@@ -2,3 +2,18 @@ name: Hello World
 on: 
   pull_request:
     types: opened
+jobs:
+  startup:
+    name: run startup
+    runs-on: ubuntu-latest
+    steps: 
+      - run: echo"Hello world"
+  build:
+    name: Here is my build take
+    runs-on: ubuntu-latest
+    steps: 
+      - run: gh pr $PR_URL --body "Thanks for your pull request"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+   

@@ -18,3 +18,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_URL: ${{ github.event.pull_request.html_url }}
+      - name: Check for command
+        run: ./.github/script/checker.sh
+        env:
+          FILE: ./src/components/Button.js

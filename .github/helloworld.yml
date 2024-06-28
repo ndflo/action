@@ -7,7 +7,7 @@ jobs:
     name: run Florent
     runs-on: ubuntu-latest
     steps: 
-      - run: echo"Hello world"
+      - run: echo "Hello world"
   build:
     name: Here is my build take
     runs-on: ubuntu-latest

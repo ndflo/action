@@ -26,3 +26,13 @@ jobs:
         run: ./.github/script/checker.sh
         env:
           FILE: ./src/components/Button.js
+      - name: Merge Code
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout main
+          git merge ${{ github.head_ref }} --no-ff --no-edit
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Comment on PR
+        run: gh pr comment "${{ github.event.pull_request.html_url }}" --body "Thanks for your PR. The code has been merge!"

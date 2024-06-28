@@ -14,7 +14,7 @@ jobs:
     needs: startup
     steps:
       - name: Comment on PR
-        run: gh pr comment "${{ github.event.pull_request.html_url }}" --body "Thanks for your PR. We will review shortly ! "
+        run: gh pr comment "${{ github.event.pull_request.html_url }}" --body "Thanks for your PR. We will review shortly!"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_URL: ${{ github.event.pull_request.html_url }}
@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - name: Check for Buttons
-        run: ./.github/script/checker.sh
+      - name: Prepare script
+        run: sh ./.github/script/checker.sh && ./.github/script/checker.sh
         env:
           FILE: ./src/components/Button.js
